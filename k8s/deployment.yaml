@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: conversao-temperatura
+  name: kubenews
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: web
+      app: kube
   template: 
     metadata:  
       labels:
-        app: web
+        app: kube
     spec:
       containers:
-      - name: site
-        image: especialistascloud/temperatura:v2
+      - name: kube-site
+        image: especialistascloud/kubenews:v1
         ports:
         - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-page
+  name: server-kube
 spec:
   selector:
-    app: web
+    app: kub
   ports:
     - port: 80
       targetPort: 8080
