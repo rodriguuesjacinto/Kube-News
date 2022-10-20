@@ -6,7 +6,7 @@ pipeline {
             steps{
                 echo "======== executing Build Docker Image ========"
                 script {
-                    dockerapp = docker.build("especialistascloud/kubenews:${env.BUILD_ID}",'-f ./src/Dokerfile ./src')      
+                    dockerapp = docker.build("especialistascloud/kubenews:${env.BUILD_ID}",'-f ./src/dokerfile ./src')      
                 }
             }    
         }
