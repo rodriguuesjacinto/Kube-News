@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: especialistascloud/kubenews:v1
+        image: especialistascloud/kubenews:{{TAG}}
         ports:
         - containerPort: 8080
         env:
