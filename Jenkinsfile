@@ -22,5 +22,17 @@ pipeline {
                 }
             }
         }
+
+        stage("Deploy Kubernetes") {
+            steps{
+                echo "======== executing Deploy Kubernetes ========"
+                script {
+                    withkubeconfig ([credentialsID: 'kubeconfig']){
+                        sh 'kubectl apply -f ./k8s/deployment.yaml'
+                    }     
+                }
+            }    
+        }  
+
     }
 }
