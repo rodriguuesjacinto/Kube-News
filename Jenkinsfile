@@ -29,7 +29,7 @@ pipeline {
             }
             steps{
                 echo "======== executing Deploy Kubernetes ========"
-                    withkubeConfig ([credentialsID: 'kubeconfig']){
+                    withKubeConfig ([credentialsID: 'kubeconfig']){
                         sh 'sed -i "s/{{TAG}}/$tag_version/g" ./k8s/deployment.yaml'
                         sh 'kubectl apply -f ./k8s/deployment.yaml'
                     }     
